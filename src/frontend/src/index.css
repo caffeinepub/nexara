@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.875rem;
+
+    /* Nexara Dark SaaS Theme */
+    --background: 0.085 0.025 250;
+    --foreground: 0.94 0.018 240;
+    --card: 0.14 0.035 245;
+    --card-foreground: 0.94 0.018 240;
+    --popover: 0.14 0.035 245;
+    --popover-foreground: 0.94 0.018 240;
+    --primary: 0.56 0.22 258;
+    --primary-foreground: 0.985 0 0;
+    --secondary: 0.18 0.04 245;
+    --secondary-foreground: 0.94 0.018 240;
+    --muted: 0.18 0.04 245;
+    --muted-foreground: 0.72 0.04 240;
+    --accent: 0.78 0.15 210;
+    --accent-foreground: 0.085 0.025 250;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.27 0.05 242;
+    --input: 0.2 0.04 245;
+    --ring: 0.56 0.22 258;
+    --chart-1: 0.56 0.22 258;
+    --chart-2: 0.78 0.15 210;
+    --chart-3: 0.7 0.18 285;
+    --chart-4: 0.65 0.2 195;
+    --chart-5: 0.75 0.15 230;
+    --sidebar: 0.12 0.03 248;
+    --sidebar-foreground: 0.94 0.018 240;
+    --sidebar-primary: 0.56 0.22 258;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.18 0.04 245;
+    --sidebar-accent-foreground: 0.94 0.018 240;
+    --sidebar-border: 0.27 0.05 242;
+    --sidebar-ring: 0.56 0.22 258;
+  }
+
+  .dark {
+    --background: 0.085 0.025 250;
+    --foreground: 0.94 0.018 240;
+    --card: 0.14 0.035 245;
+    --card-foreground: 0.94 0.018 240;
+    --popover: 0.14 0.035 245;
+    --popover-foreground: 0.94 0.018 240;
+    --primary: 0.56 0.22 258;
+    --primary-foreground: 0.985 0 0;
+    --secondary: 0.18 0.04 245;
+    --secondary-foreground: 0.94 0.018 240;
+    --muted: 0.18 0.04 245;
+    --muted-foreground: 0.72 0.04 240;
+    --accent: 0.78 0.15 210;
+    --accent-foreground: 0.085 0.025 250;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.27 0.05 242;
+    --input: 0.2 0.04 245;
+    --ring: 0.56 0.22 258;
+    --sidebar: 0.12 0.03 248;
+    --sidebar-foreground: 0.94 0.018 240;
+    --sidebar-primary: 0.56 0.22 258;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.18 0.04 245;
+    --sidebar-accent-foreground: 0.94 0.018 240;
+    --sidebar-border: 0.27 0.05 242;
+    --sidebar-ring: 0.56 0.22 258;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      oklch(0.65 0.22 258),
+      oklch(0.65 0.2 295)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px oklch(0.56 0.22 258 / 0.3), 0 0 40px
+      oklch(0.56 0.22 258 / 0.15);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px oklch(0.78 0.15 210 / 0.3), 0 0 40px
+      oklch(0.78 0.15 210 / 0.15);
+  }
+
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px oklch(0.56 0.22 258 / 0.25), 0 0 0 1px
+      oklch(0.56 0.22 258 / 0.4);
+  }
+
+  .bg-page-gradient {
+    background: radial-gradient(
+      ellipse at top left,
+      oklch(0.14 0.06 260) 0%,
+      oklch(0.085 0.025 250) 50%,
+      oklch(0.1 0.035 250) 100%
+    );
+  }
+
+  .pulse-ring {
+    animation: pulse-ring 2.5s ease-in-out infinite;
+  }
+
+  .pulse-ring-slow {
+    animation: pulse-ring 3.5s ease-in-out infinite;
+  }
+
+  .float-anim {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .float-anim-alt {
+    animation: float-alt 5s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes float-alt {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.spin-slow-reverse {
+  animation: spin-slow 30s linear infinite reverse;
+}
